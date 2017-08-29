@@ -8,11 +8,8 @@
   <?php wp_head(); ?>
 
   <!-- Font Awesome icons -->
-  <link href="<?php bloginfo('template_url'); ?>/css/font-awesome.min.css" rel="stylesheet">
-
-  <!-- Bootstrap CSS -->
-  <link href="<?php bloginfo('template_url'); ?>/css/bootstrap.min.css" rel="stylesheet">
-
+  <link href="<?php bloginfo('template_url'); ?>/assets/css/font-awesome.min.css" rel="stylesheet">
+  
   <!-- Custom styles -->
   <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet">
 
