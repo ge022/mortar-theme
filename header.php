@@ -7,17 +7,15 @@
   
   <?php wp_head(); ?>
 
-  <!-- Font Awesome icons -->
-  <link href="<?php bloginfo('template_url'); ?>/assets/css/font-awesome.min.css" rel="stylesheet">
-  
-  <!-- Custom styles -->
-  <link href="<?php bloginfo('stylesheet_url'); ?>" rel="stylesheet">
-
-
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
-<header>
+<?php if ( header_enabled() ) : ?>
+<header id="top">
+
+  <h1>Header</h1>
 
 </header>
+
+<?php endif; ?>

@@ -1,8 +1,14 @@
+<?php /* Template Name: No Header Footer */ ?>
+
+<?php
+  add_filter( 'header_enabled', '__return_false' );
+  add_filter( 'footer_enabled', '__return_false' );
+?>
+
 <?php get_header(); ?>
 
-<!-- TODO: Theme customizer dynamic container width -->
 <main id="post-<?php the_ID(); ?>" <?php post_class('container'); ?>>
-
+  
   <?php
     while ( have_posts() ) : the_post();
       the_content();
