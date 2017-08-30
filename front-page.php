@@ -1,8 +1,9 @@
+
 <?php get_header(); ?>
 
 <!-- TODO: Theme customizer dynamic container width -->
 <main id="post-<?php the_ID(); ?>" <?php post_class('container'); ?>>
-
+  <h2>Front</h2>
   <?php
     while ( have_posts() ) : the_post();
       the_content();
