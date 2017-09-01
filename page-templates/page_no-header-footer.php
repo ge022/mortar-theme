@@ -1,4 +1,4 @@
-<?php /* Template Name: No Header or Footer */ ?>
+<?php /* Template Name: No Header Footer */ ?>
 
 <?php
   add_filter( 'header_enabled', '__return_false' );

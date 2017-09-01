@@ -2,3 +2,50 @@
 main {
   background: #f1ebce;
 }
+
+/* Layout */
+// Containers
+
+.container {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* HEADER */
+
+.brand-logo {
+  margin: 1.5rem 0 1rem 0;
+}
+
+.brand-title {
+  margin: 1rem 0 1.5rem 0;
+}
+
+.brand-title small {
+  font-size: 1rem;
+}
+
+// Navbar
+
+.navbar {
+}
+
+// Nav
+
+// Overriding Bootstrap's hardcoded padding
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+
+
+/* END HEADER */
+
+
+/* Buttons */
+button:focus {
+  outline: none;
+}
