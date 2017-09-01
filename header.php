@@ -23,20 +23,32 @@
         
         <div class="col header-top">
 
-<!--      TODO: Dynamic logo height, brand logo and title margins -->
+<!--      TODO: Dynamic logo height, site logo and title margins -->
       
-          <div class="brand-logo d-flex justify-content-center">
+          <div class="site-logo d-flex justify-content-center">
             
-            <img class="img-fluid" src="http://via.placeholder.com/190x200" alt="Brand logo">
+            <a href="<?php if ( is_front_page() && ! is_home() ) echo '#'; else echo get_site_url()?>">
+
+              <img class="img-fluid" src="http://via.placeholder.com/190x200" alt="Site logo">
+              
+            </a>
+            
           
           </div>
           
-          <h1 class="brand-title d-flex flex-column align-items-center"><span class="brand-title-primary">Brand Title</span><small class="brand-title-secondary">Secondary text</small></h1>
+          <h1 class="site-title d-flex flex-column align-items-center">
+            <span class="site-title-primary">Brand Name</span>
+            <small class="site-title-secondary">Secondary text</small>
+          </h1>
           
         </div>
 
 
       </div>
+  
+      <?php if ( has_nav_menu( 'social-menu-topbar' ) ) : ?>
+      
+      <?php endif; ?>
       
       <div class="row">
 
@@ -49,20 +61,19 @@
             </button>
   
             <div class="collapse navbar-collapse w-100" id="navbarNav">
-              <ul class="navbar-nav mx-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">Home |&nbsp;<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Features |&nbsp;</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing |&nbsp;</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-              </ul>
+  
+              <?php
+                wp_nav_menu( array(
+                  'menu' => 'main-menu',
+                  'theme_location' => 'main-menu',
+                  'depth' => 2,
+                    'container' => false,
+                    'menu_class' => 'navbar-nav mx-auto',
+                    'fallback_cb' => 'WP_Bootstrap_Navwalker::fallback',
+                    'walker' => new WP_Bootstrap_Navwalker()
+                ));
+              ?>
+              
             </div>
 
           </div>

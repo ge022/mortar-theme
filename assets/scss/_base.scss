@@ -13,15 +13,15 @@ main {
 
 /* HEADER */
 
-.brand-logo {
+.site-logo {
   margin: 1.5rem 0 1rem 0;
 }
 
-.brand-title {
+.site-title {
   margin: 1rem 0 1.5rem 0;
 }
 
-.brand-title small {
+.site-title small {
   font-size: 1rem;
 }
 
@@ -32,17 +32,46 @@ main {
 
 // Nav
 
-// Overriding Bootstrap's hardcoded padding
+.nav-item,
+.nav-link {
+  display: inline-block;
+}
+
 @media (min-width: 992px) {
+
+  // Overriding Bootstrap's hardcoded padding
   .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 0;
     padding-left: 0;
   }
+
+  // Adding a separator to nav-items
+  .navbar-nav .nav-item a:before {
+    content: '\00a0|\00a0'
+  }
+
+  .navbar-nav .nav-item:first-child a:before,
+  .navbar-nav .dropdown-menu .nav-item a:before {
+    content: ''
+  }
+
 }
 
 
 
 /* END HEADER */
+
+/* FOOTER */
+
+.footer-top address {
+  margin-bottom: 0;
+}
+
+footer .bottom-bar #menu-social-links {
+  margin-bottom: 0;
+}
+
+/* END FOOTER */
 
 
 /* Buttons */
