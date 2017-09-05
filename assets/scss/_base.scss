@@ -1,80 +1,131 @@
 
 main {
-  background: #f1ebce;
+  //background: $gray-300;
 }
 
-/* Layout */
-// Containers
 
-.container {
-  padding-right: 0;
-  padding-left: 0;
-}
+/* LAYOUT */
 
-/* HEADER */
-
-.site-logo {
-  margin: 1.5rem 0 1rem 0;
-}
-
-.site-title {
-  margin: 1rem 0 1.5rem 0;
-}
-
-.site-title small {
-  font-size: 1rem;
-}
-
-// Navbar
-
-.navbar {
-}
-
-// Nav
-
-.nav-item,
-.nav-link {
-  display: inline-block;
-}
-
-@media (min-width: 992px) {
-
-  // Overriding Bootstrap's hardcoded padding
-  .navbar-expand-lg .navbar-nav .nav-link {
+  // Containers
+  .container {
     padding-right: 0;
     padding-left: 0;
   }
 
-  // Adding a separator to nav-items
-  .navbar-nav .nav-item a:before {
-    content: '\00a0|\00a0'
+/* END LAYOUT */
+
+
+/* HEADER */
+
+  .site-title small {
+    font-size: 1rem;
   }
 
-  .navbar-nav .nav-item:first-child a:before,
-  .navbar-nav .dropdown-menu .nav-item a:before {
-    content: ''
+  header .navbar-nav {
+    letter-spacing: .277em;
   }
 
-}
+  header .nav-link {
+    margin: 0;
+  }
 
+  // Navbar
 
+  @media (min-width: 992px) {
+
+    // Overriding Bootstrap's hardcoded padding
+    .navbar-expand-lg .navbar-nav .nav-link {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .navbar-nav .nav-item + .nav-item:before {
+      content: '\00a0|\00a0'
+    }
+
+    .navbar-nav .dropdown-menu .nav-item:before {
+      content: ''
+    }
+
+  }
 
 /* END HEADER */
 
+
+
 /* FOOTER */
 
-.footer-top address {
-  margin-bottom: 0;
-}
+  .footer-top .site-info {
+    color: $white;
+  }
 
-footer .bottom-bar #menu-social-links {
-  margin-bottom: 0;
-}
+  footer .bottom-bar {
+    font-size: 2rem;
+  }
 
 /* END FOOTER */
 
 
-/* Buttons */
-button:focus {
-  outline: none;
-}
+/* COMPONENTS */
+
+
+  // Typography
+  html {
+    font-size: 14px;
+  }
+
+  @media (min-width: 768px) {
+    html,
+    body {
+      font-size: 15px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    html,
+    body {
+      font-size: 16px;
+    }
+  }
+
+  // Nav
+  .nav-item,
+  .nav-link {
+    color: $white;
+    display: inline-block;
+  }
+
+  .dropdown-menu .nav-item {
+    display: block;
+  }
+
+  .nav-link {
+    margin: 0 1rem;
+  }
+
+  .back-to-top {
+    font-size: 1.5rem;
+  }
+
+  // Lists
+  ol, ul, dl {
+    margin-bottom: 0;
+  }
+
+
+  /* COLORS */
+
+  /* END COLORS */
+
+  // Buttons
+
+  // Address
+  address {
+    margin-bottom: 0;
+  }
+
+/* END COMPONENTS */
+
+
+
+

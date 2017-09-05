@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
   <?php wp_head(); ?>
-
+  
 </head>
 
 <body <?php body_class(); ?>>
@@ -14,45 +14,43 @@
 <?php if ( header_enabled() ) : ?>
 
   <header id="top">
-  
-    <div class="container-fluid">
-    
-<!--  TODO: Responsive collapse for header top -->
-      
-      <div class="row">
-        
-        <div class="col header-top">
 
-<!--      TODO: Dynamic logo height, site logo and title margins -->
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <!--  TODO: Responsive collapse for header-top -->
+        <!--  TODO: Dynamic header-top padding  -->
+        
+        <div class="col pt-4 pb-4 header-top">
+
+<!--      TODO: Dynamic logo height, logo/title margin -->
       
-          <div class="site-logo d-flex justify-content-center">
+          <div class="d-flex justify-content-center site-logo">
             
             <a href="<?php if ( is_front_page() && ! is_home() ) echo '#'; else echo get_site_url()?>">
 
-              <img class="img-fluid" src="http://via.placeholder.com/190x200" alt="Site logo">
+              <img class="img-fluid" src="http://via.placeholder.com/130x140" alt="Site logo">
               
             </a>
             
-          
           </div>
           
-          <h1 class="site-title d-flex flex-column align-items-center">
-            <span class="site-title-primary">Brand Name</span>
-            <small class="site-title-secondary">Secondary text</small>
+          <h1 class="d-flex flex-column align-items-center mt-3 mb-0 site-title">
+            <span class="site-title-primary">BRAND NAME</span>
+            <small class="site-title-secondary">SECONDARY TEXT</small>
           </h1>
           
         </div>
 
 
       </div>
-  
-      <?php if ( has_nav_menu( 'social-menu-topbar' ) ) : ?>
-      
-      <?php endif; ?>
       
       <div class="row">
 
-        <nav class="col navbar navbar-expand-lg navbar-light bg-light w-100">
+        <!-- TODO: Dynamic navbar padding -->
+
+        <nav class="col navbar navbar-expand-lg navbar-dark bg-dark w-100">
           
           <div class="container">
             
