@@ -26,19 +26,34 @@
 
 <!--      TODO: Dynamic logo height, logo/title margin -->
       
-          <div class="d-flex justify-content-center site-logo">
+          <div class="d-flex text-center justify-content-center site-logo">
             
             <a href="<?php if ( is_front_page() && ! is_home() ) echo '#'; else echo get_site_url()?>">
-
-              <img class="img-fluid" src="http://via.placeholder.com/130x140" alt="Site logo">
-              
+              <?php
+                the_custom_logo();
+              ?>
             </a>
             
           </div>
           
-          <h1 class="d-flex flex-column align-items-center mt-3 mb-0 site-title">
-            <span class="site-title-primary">BRAND NAME</span>
-            <small class="site-title-secondary">SECONDARY TEXT</small>
+          <h1 class="d-flex flex-column align-items-center mt-3 mb-0 site-branding">
+            
+            <a href="<?php if ( is_front_page() && ! is_home() ) echo '#'; else echo get_site_url()?>">
+
+              <span class="d-block text-center site-title"><?php bloginfo( 'name' ); ?></span>
+              
+              <small class="d-block text-center site-description">
+                <?php
+                $description = get_bloginfo( 'description', 'display' );
+  
+                if ( $description || is_customize_preview() ) : ?>
+                  <?php echo $description; ?>
+                <?php endif;
+                ?>
+              </small>
+              
+            </a>
+            
           </h1>
           
         </div>
@@ -59,7 +74,8 @@
             </button>
   
             <div class="collapse navbar-collapse w-100" id="navbarNav">
-  
+
+              <!-- TODO: Typography control styling -->
               <?php
                 wp_nav_menu( array(
                   'menu' => 'main-menu',

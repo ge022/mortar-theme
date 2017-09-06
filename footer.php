@@ -9,16 +9,16 @@
       
         <!-- TODO: Dynamic footer-top padding -->
         
-        <div class="col d-flex flex-column align-items-center bg-dark pt-4 pb-4 footer-top">
+        <div class="col text-center d-flex flex-column align-items-center bg-dark pt-4 pb-4 footer-top">
 
-          <!-- TODO: Dynamic back-to-top and list-item margins -->
+          <!-- TODO: Dynamic list-item margins -->
           
-          <a class="mb-4 back-to-top" href="<?php if ( is_front_page() && ! is_home() ) echo '#top'; else echo get_site_url()?>">HOME</a>
+          <a class="back-to-top" href="<?php if ( is_front_page() && ! is_home() ) echo '#top'; else echo get_site_url()?>">HOME</a>
           
-          <ul class="list-inline site-info">
-            <li class="list-inline-item mr-2 mb-3">BRAND NAME</li>
-            <li class="list-inline-item mr-2 mb-3"><address>1355 Market St, Suite 900. San Francisco, CA 94103</address></li>
-            <li class="list-inline-item mb-3"><address>contact@example.com</address></li>
+          <ul class="list-inline mt-custom site-info">
+            <li class="list-inline-item mr-2 mb-3 site-title">SITE TITLE</li>
+            <li class="list-inline-item mr-2 mb-3"><address><a href="#google-maps" target="_blank">1355 Market St, Suite 900. San Francisco, CA 94103</a></address></li>
+            <li class="list-inline-item mb-3"><address><a href="mailto:contact@example.com">contact@example.com</a></address></li>
           </ul>
         
         </div>
@@ -27,9 +27,10 @@
       
       <div class="row">
         
-        <div class="col d-flex justify-content-center bg-secondary bottom-bar">
+        <div class="col text-center d-flex justify-content-center bg-secondary bottom-bar">
 
           <!-- TODO: Dynamic social icon font size, and nav-link margin -->
+          <!-- TODO: Typography control styling -->
 
           <?php
               wp_nav_menu( array(
