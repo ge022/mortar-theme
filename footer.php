@@ -13,7 +13,7 @@
 
           <!-- TODO: Dynamic list-item margins -->
           
-          <a class="back-to-top" href="<?php if ( is_front_page() && ! is_home() ) echo '#top'; else echo get_site_url()?>">HOME</a>
+          <a class="back-to-top" href="<?php if ( is_front_page() && ! is_home() ) echo '#top'; else echo esc_url( home_url( '/' ) ); ?>">HOME</a>
           
           <ul class="list-inline mt-custom site-info">
             <li class="list-inline-item mr-2 mb-3 site-title">SITE TITLE</li>

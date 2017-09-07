@@ -24,21 +24,30 @@
         
         <div class="col pt-4 pb-4 header-top">
 
-<!--      TODO: Dynamic logo height, logo/title margin -->
+<!--      TODO: Dynamic logo/title margin -->
       
           <div class="d-flex text-center justify-content-center site-logo">
             
-            <a href="<?php if ( is_front_page() && ! is_home() ) echo '#'; else echo get_site_url()?>">
+            <?php if ( get_theme_mod('optional_header_logo', '1') ) : ?>
+              
               <?php
-                the_custom_logo();
+                
+                if ( get_theme_mod( 'optional_custom_header_logo', '0' ) && get_theme_mod( 'custom_header_logo', wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' )[0] ) ) :
+                  add_filter( 'get_custom_logo', 'custom_logo_src' );
+                  the_custom_logo();
+                else :
+                  the_custom_logo();
+                endif;
+              
               ?>
-            </a>
+            
+            <?php endif; ?>
             
           </div>
           
           <h1 class="d-flex flex-column align-items-center mt-3 mb-0 site-branding">
             
-            <a href="<?php if ( is_front_page() && ! is_home() ) echo '#'; else echo get_site_url()?>">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 
               <span class="d-block text-center site-title"><?php bloginfo( 'name' ); ?></span>
               

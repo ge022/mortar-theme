@@ -429,6 +429,7 @@ a.text-dark:focus,a.text-dark:hover{color:#1d2124 !important}
 .invisible{visibility:hidden !important}
 .container{padding-right:0;padding-left:0}
 main{padding:50px 0}
+header img.custom-logo{width:auto}
 .site-branding{line-height:1.1}
 .site-branding small{font-size:1rem}
 header .navbar-nav{letter-spacing:.277em}

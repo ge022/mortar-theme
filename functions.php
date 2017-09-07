@@ -33,6 +33,8 @@ function mortar_setup()  {
     'header-text' => array( 'site-title', 'site-description' ),
   ) );
   
+  // TODO: Add support for custom headers
+  
 }
 endif;
 add_action( 'after_setup_theme', 'mortar_setup' );
@@ -174,3 +176,12 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file
  */
 //require get_template_directory() . '/inc/jetpack.php';
+
+
+/**
+ * Override custom_logo's url to the one set in the Theme Customizer
+ */
+function custom_logo_src ( $html ) {
+  $html = preg_replace('/src="(.*?)"/','src="' . get_theme_mod( 'custom_header_logo' ) . '"', $html);
+  return $html;
+}
