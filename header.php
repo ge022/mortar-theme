@@ -20,44 +20,49 @@
       <div class="row">
 
         <!--  TODO: Responsive collapse for header-top -->
-        <!--  TODO: Dynamic header-top padding  -->
         
-        <div class="col pt-4 pb-4 header-top">
-
-<!--      TODO: Dynamic logo/title margin -->
-      
-          <div class="d-flex text-center justify-content-center site-logo">
-            
-            <?php if ( get_theme_mod('optional_header_logo', '1') ) : ?>
-              
-              <?php
-                
-                if ( get_theme_mod( 'optional_custom_header_logo', '0' ) && get_theme_mod( 'custom_header_logo', wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' )[0] ) ) :
-                  add_filter( 'get_custom_logo', 'custom_logo_src' );
-                  the_custom_logo();
-                else :
-                  the_custom_logo();
-                endif;
-              
-              ?>
-            
-            <?php endif; ?>
-            
-          </div>
+        <div class="col header-top">
           
-          <h1 class="d-flex flex-column align-items-center mt-3 mb-0 site-branding">
+          <?php if ( get_theme_mod('optional_header_logo', '1') ) : ?>
+          
+            <div class="d-flex text-center justify-content-center site-logo">
+                <?php
+                  if ( get_theme_mod( 'optional_custom_header_logo', '0' ) && get_theme_mod( 'custom_header_logo', wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' )[0] ) ) :
+                    add_filter( 'get_custom_logo', 'custom_logo_src' );
+                    the_custom_logo();
+                  else :
+                    the_custom_logo();
+                  endif;
+                ?>
+            </div>
+            
+          <?php endif; ?>
+          
+          
+          <h1 class="d-flex flex-column align-items-center mb-0 site-branding">
             
             <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
 
-              <span class="d-block text-center site-title"><?php bloginfo( 'name' ); ?></span>
+              <span class="d-block text-center site-title">
+                <?php
+                  if ( get_theme_mod( 'optional_custom_header_site_title', '0' ) ) :
+                    echo get_theme_mod( 'custom_header_site_title' );
+                  else :
+                    bloginfo( 'name' );
+                  endif;
+                ?>
+              </span>
               
               <small class="d-block text-center site-description">
                 <?php
-                $description = get_bloginfo( 'description', 'display' );
-  
-                if ( $description || is_customize_preview() ) : ?>
-                  <?php echo $description; ?>
-                <?php endif;
+                  if ( get_theme_mod( 'optional_custom_header_site_description', '0' ) ) :
+                    echo get_theme_mod( 'custom_header_site_description' );
+                  else :
+                    $description = get_bloginfo( 'description', 'display' );
+                    if ( $description || is_customize_preview() ) : ?>
+                      <?php echo $description; ?>
+                    <?php endif;
+                  endif;
                 ?>
               </small>
               
@@ -72,8 +77,6 @@
       
       <div class="row">
 
-        <!-- TODO: Dynamic navbar padding -->
-
         <nav class="col navbar navbar-expand-lg navbar-dark bg-dark w-100">
           
           <div class="container">
@@ -84,7 +87,6 @@
   
             <div class="collapse navbar-collapse w-100" id="navbarNav">
 
-              <!-- TODO: Typography control styling -->
               <?php
                 wp_nav_menu( array(
                   'menu' => 'main-menu',

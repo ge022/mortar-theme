@@ -562,6 +562,7 @@ $dropdown-item-padding-y:        $nav-link-padding-y;
 //
 //$nav-link-padding-y:            .5rem !default;
 //$nav-link-padding-x:            1rem !default;
+$nav-link-padding-x:            0;
 //$nav-link-padding-x:            0;
 //$nav-link-disabled-color:       $gray-600 !default;
 //
@@ -580,7 +581,6 @@ $dropdown-item-padding-y:        $nav-link-padding-y;
 //// Navbar
 //
 //$navbar-padding-y:                  ($spacer / 2) !default;
-$navbar-padding-y:                  ($spacer / 1.5);
 //$navbar-padding-x:                  $spacer !default;
 //
 //$navbar-brand-font-size:            $font-size-lg !default;

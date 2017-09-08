@@ -29,9 +29,7 @@
         
         <div class="col text-center d-flex justify-content-center bg-secondary bottom-bar">
 
-          <!-- TODO: Dynamic social icon font size, and nav-link margin -->
-          <!-- TODO: Typography control styling -->
-
+          <!-- TODO: Dynamic nav-link margin -->
           <?php
               wp_nav_menu( array(
                 'menu' => 'social-menu-bottombar',

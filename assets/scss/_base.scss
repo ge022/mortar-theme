@@ -21,6 +21,15 @@ main {
 
 /* HEADER */
 
+  header {
+    background: grey;
+  }
+
+  .header-top {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   header img.custom-logo {
     width: auto;
   }
@@ -31,6 +40,10 @@ main {
 
   .site-branding small {
     font-size: 1rem;
+  }
+
+  header .navbar {
+    color: $white;
   }
 
   header .navbar-nav {
@@ -80,6 +93,7 @@ main {
 
   footer .bottom-bar {
     font-size: 2rem;
+    letter-spacing: 1rem;
   }
 
 /* END FOOTER */
@@ -110,16 +124,12 @@ main {
   // Nav
   .nav-item,
   .nav-link {
-    color: $white;
+    //color: $white;
     display: inline-block;
   }
 
   .dropdown-menu .nav-item {
     display: block;
-  }
-
-  .nav-link {
-    //margin: 0 1rem;
   }
 
   .back-to-top {

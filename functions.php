@@ -2,8 +2,8 @@
 
 
 if ( ! function_exists( 'mortar_setup' ) ) :
-/**
- * Sets up theme defaults and registers support for various WordPress features.
+/*
+ *	Sets up theme defaults and registers support for various WordPress features.
  */
 function mortar_setup()  {
   
@@ -40,20 +40,20 @@ endif;
 add_action( 'after_setup_theme', 'mortar_setup' );
 
 
-/**
- * Set the content width in pixels, based on the theme's design and stylesheet.
+/*
+ *	Set the content width in pixels, based on the theme's design and stylesheet.
  *
- * Priority 0 to make it available to lower priority callbacks.
+ *	Priority 0 to make it available to lower priority callbacks.
  *
- * @global int $content_width
+ *	@global int $content_width
  */
 function mortar_content_width() {
   $GLOBALS['content_width'] = apply_filters( 'mortar_content_width', 1140 );
 }
 add_action( 'after_setup_theme', 'mortar_content_width', 0 );
 
-/**
- * Enqueue scripts and styles.
+/*
+ *	Enqueue scripts and styles.
  */
 function mortar_enqueue_scripts() {
   // Add custom fonts, used in the main stylesheet.
@@ -61,10 +61,6 @@ function mortar_enqueue_scripts() {
   
   // Theme stylesheet.
   wp_enqueue_style( 'custom-style', get_stylesheet_uri() );
-  
-  // JQuery
-//  wp_deregister_script('jquery');
-//  wp_enqueue_script( 'jquery', get_theme_file_uri( '/assets/js/jquery.min.js' ), array(), null, true );
   
   // JQuery Easing
   wp_deregister_script('jquery-easing');
@@ -85,8 +81,8 @@ add_action( 'wp_enqueue_scripts', 'mortar_enqueue_scripts' );
 
 
 
-/**
- * Check if the calling template requires a header or footer.
+/*
+ *	Check if the calling template requires a header or footer.
  */
 function header_enabled()
 {
@@ -102,13 +98,13 @@ function footer_enabled()
 
 
 if ( ! function_exists( 'mortar_edit_link' ) ) :
-  /**
-   * Returns an accessibility-friendly link to edit a post or page.
+  /*
+   *	Returns an accessibility-friendly link to edit a post or page.
    */
   function mortar_edit_link() {
     edit_post_link(
       sprintf(
-      /* translators: %s: Name of current post */
+      /*	translators: %s: Name of current post */
         __( 'Edit<span class="screen-reader-text"> "%s"</span>', 'mortar-theme' ),
         get_the_title()
       ),
@@ -120,8 +116,8 @@ endif;
 
 
 
-/**
- * Register menus
+/*
+ *	Register menus
  */
 
 // Register Custom Navigation Walker
@@ -140,8 +136,8 @@ add_action( 'init', 'register_my_menus' );
 
 
 
-/**
- * Use latest font-awesome icons
+/*
+ *	Use latest font-awesome icons
  */
 add_filter( 'storm_social_icons_use_latest', '__return_true' );
 add_filter( 'storm_social_icons_size', create_function( '', 'return "normal";' ) );
@@ -159,27 +155,27 @@ function storm_social_icons_networks( $networks ) {
 }
 
 
-/**
- * Recommend the Kirki plugin
+/*
+ *	Recommend the Kirki plugin
  */
 require get_template_directory() . '/inc/include-kirki.php';
 
 // Kirki fallback
 require_once get_template_directory() . '/inc/class-mortar-theme-kirki.php';
 
-/**
- * Customizer additions
+/*
+ *	Customizer additions
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file
+/*
+ *	Load Jetpack compatibility file
  */
 //require get_template_directory() . '/inc/jetpack.php';
 
 
-/**
- * Override custom_logo's url to the one set in the Theme Customizer
+/*
+ *	Override custom_logo's url to the one set in the Theme Customizer
  */
 function custom_logo_src ( $html ) {
   $html = preg_replace('/src="(.*?)"/','src="' . get_theme_mod( 'custom_header_logo' ) . '"', $html);
