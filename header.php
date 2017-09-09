@@ -23,17 +23,19 @@
         
         <div class="col header-top">
           
-          <?php if ( get_theme_mod('optional_header_logo', '1') ) : ?>
+          <?php if ( get_theme_mod('optional_header_logo') ) : ?>
           
             <div class="d-flex text-center justify-content-center site-logo">
+              <?php if ( get_theme_mod( 'optional_custom_header_logo' ) && get_theme_mod( 'custom_header_logo' ) ) : ?>
                 <?php
-                  if ( get_theme_mod( 'optional_custom_header_logo', '0' ) && get_theme_mod( 'custom_header_logo', wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' )[0] ) ) :
-                    add_filter( 'get_custom_logo', 'custom_logo_src' );
-                    the_custom_logo();
-                  else :
-                    the_custom_logo();
-                  endif;
+                  add_filter( 'get_custom_logo', 'custom_logo_src' );
+                  the_custom_logo();
                 ?>
+              <?php else : ?>
+                <?php
+                  the_custom_logo();
+                ?>
+              <?php endif; ?>
             </div>
             
           <?php endif; ?>
@@ -45,7 +47,7 @@
 
               <span class="d-block text-center site-title">
                 <?php
-                  if ( get_theme_mod( 'optional_custom_header_site_title', '0' ) ) :
+                  if ( get_theme_mod( 'optional_custom_header_site_title', false ) ) :
                     echo get_theme_mod( 'custom_header_site_title' );
                   else :
                     bloginfo( 'name' );
@@ -54,16 +56,18 @@
               </span>
               
               <small class="d-block text-center site-description">
-                <?php
-                  if ( get_theme_mod( 'optional_custom_header_site_description', '0' ) ) :
-                    echo get_theme_mod( 'custom_header_site_description' );
-                  else :
-                    $description = get_bloginfo( 'description', 'display' );
-                    if ( $description || is_customize_preview() ) : ?>
-                      <?php echo $description; ?>
-                    <?php endif;
-                  endif;
-                ?>
+                <span class="description-wrapper">
+                  <?php
+                    if ( get_theme_mod( 'optional_custom_header_site_description', false ) ) :
+                      echo get_theme_mod( 'custom_header_site_description' );
+                    else :
+                      $description = get_bloginfo( 'description', 'display' );
+                      if ( $description || is_customize_preview() ) : ?>
+                        <?php echo $description; ?>
+                      <?php endif;
+                    endif;
+                  ?>
+                </span>
               </small>
               
             </a>

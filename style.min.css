@@ -433,7 +433,7 @@ header{background:grey}
 .header-top{padding-top:1.5rem;padding-bottom:1.5rem}
 header img.custom-logo{width:auto}
 .site-branding{line-height:1.1}
-.site-branding small{font-size:1rem}
+header .site-description{font-size:1rem}
 header .navbar{color:#fff}
 header .navbar-nav{letter-spacing:.277em}
 header .nav-link{padding-left:0;padding-right:0}
