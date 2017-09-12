@@ -133,8 +133,8 @@ tbody.collapse.show{display:table-row-group}
 .dropdown-menu{position:absolute;top:100%;left:0;z-index:1000;display:none;float:left;min-width:10rem;padding:.5rem 0;margin:.125rem 0 0;font-size:14px;color:#000;text-align:left;list-style:none;background-color:#fff;background-clip:padding-box;border:1px solid rgba(0,0,0,0.15)}
 .dropdown-divider{height:0;margin:.5rem 0;overflow:hidden;border-top:1px solid #e9ecef}
 .dropdown-item{display:block;width:100%;padding:.5rem 1.5rem;clear:both;font-weight:normal;color:#000;text-align:inherit;white-space:nowrap;background:0;border:0}
-.dropdown-item:focus,.dropdown-item:hover{color:#262626;text-decoration:none;background-color:#f8f9fa}
-.dropdown-item.active,.dropdown-item:active{color:#000;text-decoration:none;background-color:#f8f9fa}
+.dropdown-item:focus,.dropdown-item:hover{color:#262626;text-decoration:none;background-color:inherit}
+.dropdown-item.active,.dropdown-item:active{color:#000;text-decoration:none;background-color:"inherit"}
 .dropdown-item.disabled,.dropdown-item:disabled{color:#868e96;background-color:transparent}
 .show>a{outline:0}
 .dropdown-menu.show{display:block}
@@ -185,12 +185,12 @@ tbody.collapse.show{display:table-row-group}
 .navbar-light .navbar-toggler{color:rgba(0,0,0,0.5);border-color:rgba(0,0,0,0.1)}
 .navbar-light .navbar-toggler-icon{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")}
 .navbar-light .navbar-text{color:rgba(0,0,0,0.5)}
-.navbar-dark .navbar-brand{color:white}
-.navbar-dark .navbar-brand:focus,.navbar-dark .navbar-brand:hover{color:white}
+.navbar-dark .navbar-brand{color:#d9d9d9}
+.navbar-dark .navbar-brand:focus,.navbar-dark .navbar-brand:hover{color:#d9d9d9}
 .navbar-dark .navbar-nav .nav-link{color:#fff}
 .navbar-dark .navbar-nav .nav-link:focus,.navbar-dark .navbar-nav .nav-link:hover{color:#d9d9d9}
 .navbar-dark .navbar-nav .nav-link.disabled{color:rgba(255,255,255,0.25)}
-.navbar-dark .navbar-nav .show>.nav-link,.navbar-dark .navbar-nav .active>.nav-link,.navbar-dark .navbar-nav .nav-link.show,.navbar-dark .navbar-nav .nav-link.active{color:white}
+.navbar-dark .navbar-nav .show>.nav-link,.navbar-dark .navbar-nav .active>.nav-link,.navbar-dark .navbar-nav .nav-link.show,.navbar-dark .navbar-nav .nav-link.active{color:#d9d9d9}
 .navbar-dark .navbar-toggler{color:#fff;border-color:rgba(255,255,255,0.1)}
 .navbar-dark .navbar-toggler-icon{background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E")}
 .navbar-dark .navbar-text{color:#fff}
@@ -429,21 +429,30 @@ a.text-dark:focus,a.text-dark:hover{color:#1d2124 !important}
 .invisible{visibility:hidden !important}
 .container{padding-right:0;padding-left:0}
 main{padding:50px 0}
-header{background:grey}
+header{background-color:#868e96}
+header a,header a:hover{color:#fff}
 .header-top{padding-top:1.5rem;padding-bottom:1.5rem}
+header .site-logo{margin-bottom:1rem}
 header img.custom-logo{width:auto}
 .site-branding{line-height:1.1}
 header .site-description{font-size:1rem}
-header .navbar{color:#fff}
+header .navbar{color:#fff;background-color:#343a40}
 header .navbar-nav{letter-spacing:.277em}
 header .nav-link{padding-left:0;padding-right:0}
+.navbar-dark .navbar-nav .nav-link,.navbar-dark .navbar-nav .show>.nav-link,.navbar-dark .navbar-nav .nav-link.show,.dropdown-item{-webkit-transition:color .25s;transition:color .25s}
+footer{background-color:#343a40}
+footer .contact-info{margin-top:2rem}
 footer,footer a{color:#fff}
 footer a:hover{color:#d9d9d9}
-footer .bottom-bar{font-size:2rem;letter-spacing:1rem}
+.footer-top{padding-top:1.5rem;padding-bottom:1.5rem}
+footer .contact-info .list-inline-item:not(:last-child){margin-right:.5rem}
+footer .contact-info li{margin-bottom:1rem}
+footer .bottom-bar{font-size:2rem;letter-spacing:1rem;background-color:#868e96}
 html{font-size:14px}
+a{-webkit-transition:color .25s;transition:color .25s}
 .nav-item,.nav-link{display:inline-block}
 .dropdown-menu .nav-item{display:block}
-.back-to-top{font-size:1.5rem}
+.home-link{font-size:1.5rem}
 ol,ul,dl{margin-bottom:0}
 address{margin-bottom:0}
 @media(min-width:576px){.container{max-width:540px}

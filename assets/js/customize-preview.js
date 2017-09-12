@@ -22,24 +22,12 @@
     } );
   } );
 
+  // Site address and email
+  wp.customize( 'site_address', function() {
+    $( '.site-address' ).css('opacity',1);
+  } );
+  wp.customize( 'site_email', function() {
+    $( '.site-email' ).css('opacity',1);
+  } );
 
-	// Header text color.
-	wp.customize( 'header_textcolor', function( value ) {
-		value.bind( function( newval ) {
-			if ( 'blank' === newval ) {
-				$( '.site-title, .site-description' ).css( {
-					'clip': 'rect(1px, 1px, 1px, 1px)',
-					'position': 'absolute'
-				} );
-			} else {
-				$( '.site-title, .site-description' ).css( {
-					'clip': 'auto',
-					'position': 'relative'
-				} );
-				$( '.site-title a, .site-description' ).css( {
-					'color': newval
-				} );
-			}
-		} );
-	} );
 } )( jQuery );

@@ -71,3 +71,6 @@ assets/sass/HTML
 assets/sass/Rails
 HTML
 Rails
+
+# Kirki #
+/inc/kirki-develop/

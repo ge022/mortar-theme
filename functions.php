@@ -158,7 +158,8 @@ function storm_social_icons_networks( $networks ) {
 /*
  *	Recommend the Kirki plugin
  */
-require get_template_directory() . '/inc/include-kirki.php';
+//require get_template_directory() . '/inc/include-kirki.php';
+include_once __DIR__ . '/inc/kirki-develop/kirki.php';
 
 // Kirki fallback
 require_once get_template_directory() . '/inc/class-mortar-theme-kirki.php';
@@ -177,7 +178,6 @@ require get_template_directory() . '/inc/customizer.php';
 /*
  *	Override custom_logo's url to the one set in the Theme Customizer
  */
-
 function custom_logo_src ( $html ) {
   $html = preg_replace('/src="(.*?)"/','src="' . get_theme_mod( 'custom_header_logo' ) . '"', $html);
   return $html;

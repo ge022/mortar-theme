@@ -1,21 +1,20 @@
 <?php
 
-
 /*
  *	Add the Header section
  */
 mortar_theme_Kirki::add_section( 'header', array(
   'title'          => __( 'Header' ),
   'description'    => __( 'Customize the page header here' ),
-  'priority'       => 60,
+  'priority'       => 50,
   'capability'     => 'edit_theme_options'
 ) );
 
-// Optional custom padding-y
+// Optional custom spacing
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'type'        => 'toggle',
-  'settings'    => 'optional_header_padding',
-  'label'       => __( 'Enable Custom Padding', 'mortar-theme' ),
+  'settings'    => 'optional_header_spacing',
+  'label'       => __( 'Enable Custom Spacing', 'mortar-theme' ),
   'section'     => 'header',
   'default'     => false,
   'priority'    => 10,
@@ -26,12 +25,13 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'type'        => 'dimension',
   'settings'    => 'header_padding_y',
   'label'       => __( 'Header Top and Bottom Padding', 'mortar-theme' ),
+  'description' => __( 'Use valid CSS units such as px, %, rem, or em.' ),
   'section'     => 'header',
   'default'     => '1.5rem',
-  'priority'    => 20,
+  'priority'    => 15,
   'active_callback'   => array(
     array(
-      'setting'  		=> 'optional_header_padding',
+      'setting'  		=> 'optional_header_spacing',
       'operator' 		=> '==',
       'value'    		=> true,
     ),
@@ -49,6 +49,122 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   ),
 ) );
 
+// Custom logo/title margin
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'dimension',
+  'settings'    => 'header_logo_title_margin',
+  'label'       => __( 'Logo and Title Margin', 'mortar-theme' ),
+  'description' => __( 'Use valid CSS units such as px, %, rem, or em.' ),
+  'section'     => 'header',
+  'default'     => '1rem',
+  'priority'    => 20,
+  'active_callback'   => array(
+    array(
+      'setting'  		=> 'optional_header_spacing',
+      'operator' 		=> '==',
+      'value'    		=> true,
+    ),
+  ),
+  'transport'   => 'auto',
+  'output'      => array(
+    array(
+      'element'  => '.header-top .site-logo',
+      'property' => 'margin-bottom',
+    ),
+  ),
+) );
+
+// Optional custom colors
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'toggle',
+  'settings'    => 'optional_header_colors',
+  'label'       => __( 'Enable Custom Colors', 'mortar-theme' ),
+  'section'     => 'header',
+  'default'     => false,
+  'priority'    => 30,
+) );
+
+// Custom header background color
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'color',
+  'settings'    => 'header_background_color',
+  'label'       => __( 'Header Background Color', 'mortar-theme' ),
+  'section'     => 'header',
+  'default'     => '#868e96',
+  'priority'    => 35,
+  'choices'     => array(
+    'alpha' => true,
+  ),
+  'active_callback'   => array(
+    array(
+      'setting'  		=> 'optional_header_colors',
+      'operator' 		=> '==',
+      'value'    		=> true,
+    ),
+  ),
+  'transport' => 'auto',
+  'output' => array(
+    'element' => array(
+      'header',
+    ),
+    'property' => 'background-color',
+  ),
+) );
+
+// Custom header link color
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'color',
+  'settings'    => 'header_link_color',
+  'label'       => __( 'Link Color', 'mortar-theme' ),
+  'section'     => 'header',
+  'default'     => '#fff',
+  'priority'    => 40,
+  'choices'     => array(
+    'alpha' => true,
+  ),
+  'active_callback'   => array(
+    array(
+      'setting'  		=> 'optional_header_colors',
+      'operator' 		=> '==',
+      'value'    		=> true,
+    ),
+  ),
+  'transport' => 'auto',
+  'output' => array(
+    'element' => array(
+      'header .site-branding a',
+    ),
+    'property' => 'color',
+  ),
+) );
+
+// Custom header link hover color
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'color',
+  'settings'    => 'header_link_hover_color',
+  'label'       => __( 'Link Hover Color', 'mortar-theme' ),
+  'section'     => 'header',
+  'default'     => '#fff',
+  'priority'    => 45,
+  'choices'     => array(
+    'alpha' => true,
+  ),
+  'active_callback'   => array(
+    array(
+      'setting'  		=> 'optional_header_colors',
+      'operator' 		=> '==',
+      'value'    		=> true,
+    ),
+  ),
+  'transport' => 'auto',
+  'output' => array(
+    'element' => array(
+      'header .site-branding a:hover',
+    ),
+    'property' => 'color',
+  ),
+) );
+
 
 // Optional header logo
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
@@ -57,10 +173,8 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Display Logo in Header', 'mortar-theme' ),
   'section'     => 'header',
   'default'     => true,
-  'priority'    => 30,
+  'priority'    => 60,
 ) );
-
-
 
 // Optional custom header logo
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
@@ -69,7 +183,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Enable Custom Logo', 'mortar-theme' ),
   'section'     => 'header',
   'default'     => false,
-  'priority'    => 40,
+  'priority'    => 70,
   'active_callback'   => array(
     array(
       'setting'  		=> 'optional_header_logo',
@@ -87,7 +201,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'description' => __( 'Height is set in pixels. Leave blank to inherit the default height.', 'mortar-theme' ),
   'section'     => 'header',
   'default'     => '150',
-  'priority'    => 50,
+  'priority'    => 75,
   'choices'     => array(
     'min'  => 0,
     'max'  => 1000,
@@ -115,8 +229,6 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   ),
 ) );
 
-
-
 // Custom header logo
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'type'        => 'image',
@@ -124,7 +236,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Header Logo', 'mortar-theme' ),
   'description' => __( 'The default site logo must be set to override the header logo.', 'mortar-theme' ),
   'section'     => 'header',
-  'priority'    => 60,
+  'priority'    => 80,
   'active_callback'   => array(
     array(
       'setting'  		=> 'optional_header_logo',
@@ -144,37 +256,6 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
       'function' => 'html',
       'attr'     => 'src',
     ),
-    array(
-      'element'  => 'header img.custom-logo',
-      'function' => 'html',
-      'attr'     => 'srcset',
-    ),
-  ),
-) );
-
-
-
-// Custom logo/title spacing
-mortar_theme_Kirki::add_field( 'mortar_theme', array(
-  'type'        => 'dimension',
-  'settings'    => 'header_logo_title_spacing',
-  'label'       => __( 'Logo and Title Spacing', 'mortar-theme' ),
-  'section'     => 'header',
-  'default'     => '1rem',
-  'priority'    => 70,
-  'active_callback'   => array(
-    array(
-      'setting'  		=> 'optional_header_logo',
-      'operator' 		=> '==',
-      'value'    		=> true,
-    ),
-  ),
-  'transport'   => 'auto',
-  'output'      => array(
-    array(
-      'element'  => '.header-top .site-logo',
-      'property' => 'margin-bottom',
-    ),
   ),
 ) );
 
@@ -186,7 +267,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Enable Custom Site Title', 'mortar-theme' ),
   'section'     => 'header',
   'default'     => false,
-  'priority'    => 80,
+  'priority'    => 90,
 ) );
 
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
@@ -195,7 +276,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'description' => 'Title Text',
   'section'     => 'header',
   'default'     => esc_attr__('Title', 'mortar-theme'),
-  'priority'    => 90,
+  'priority'    => 95,
   'active_callback'   => array(
     array(
       'setting'  		=> 'optional_custom_header_site_title',
@@ -225,7 +306,6 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
     'line-height'    => 'inherit',
     'letter-spacing' => 'normal',
     'text-transform' => 'initial',
-    'color'          => 'inherit',
   ),
   'priority'    => 100,
   'active_callback'   => array(
@@ -260,7 +340,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'description' => 'Description Text',
   'section'     => 'header',
   'default'     => esc_attr__('Description', 'mortar-theme'),
-  'priority'    => 120,
+  'priority'    => 115,
   'active_callback'   => array(
     array(
       'setting'  		=> 'optional_custom_header_site_description',
@@ -290,9 +370,8 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
     'line-height'    => 'inherit',
     'letter-spacing' => 'normal',
     'text-transform' => 'initial',
-    'color'          => 'inherit',
   ),
-  'priority'    => 130,
+  'priority'    => 120,
   'active_callback'   => array(
     array(
       'setting'  		=> 'optional_custom_header_site_description',

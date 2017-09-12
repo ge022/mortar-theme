@@ -15,7 +15,7 @@ function mortar_theme_customize_register( $wp_customize ) {
   $wp_customize->get_setting( 'blogname' )->transport         = $transport;
   $wp_customize->get_setting( 'blogdescription' )->transport  = $transport;
   $wp_customize->get_setting( 'header_textcolor' )->transport = $transport;
-  $wp_customize->get_control('custom_logo')->description = __( 'This logo will be displayed on the site\'s login form, and if not overridden in the Header section, in the page\'s header.' );
+  $wp_customize->get_control('custom_logo')->description = __( 'This logo will be displayed on the site\'s login form and in the page\'s header (if not overridden in the Header section).' );
   
   
   /*
@@ -71,18 +71,77 @@ $customizer_path = '/inc/customizer';
  */
 require_once( get_template_directory() . $customizer_path . '/config.php' );
 
+
+/*
+ *  Add to the Site Identity section
+ */
+// Address
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'     => 'text',
+  'settings' => 'site_address',
+  'label'    => __( 'Address', 'mortar-theme' ),
+  'section'  => ' title_tagline',
+  'default'  => esc_attr__( '1355 Market St, Suite 900. San Francisco, CA 94103', 'mortar-theme' ),
+  'priority' => 70,
+  'partial_refresh' => array(
+    'site_address' => array(
+      'selector'        => '.site-address',
+      'render_callback' => function() {
+        return get_theme_mod( 'site_address' );
+      },
+    ),
+  ),
+  'transport'   => 'postMessage',
+  'js_vars'     => array(
+    array(
+      'element'  => '.site-address',
+      'function' => 'html',
+    ),
+  ),
+) );
+
+// Email
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'     => 'text',
+  'settings' => 'site_email',
+  'label'    => __( 'Email', 'mortar-theme' ),
+  'section'  => ' title_tagline',
+  'default'  => esc_attr__( 'contact@example.com', 'mortar-theme' ),
+  'priority' => 80,
+  'partial_refresh' => array(
+    'site_email' => array(
+      'selector'        => '.site-email',
+      'render_callback' => function() {
+        return get_theme_mod( 'site_email' );
+      },
+    ),
+  ),
+  'transport'   => 'postMessage',
+  'js_vars'     => array(
+    array(
+      'element'  => '.site-email',
+      'function' => 'html',
+    ),
+  ),
+) );
+
 /*
  *  Add the Header section
  */
 require_once( get_template_directory() . $customizer_path . '/header.php' );
 
 /*
+ *  Add the Footer section
+ */
+require_once( get_template_directory() . $customizer_path . '/footer.php' );
+
+/*
  *  Add the Header Menu section
  */
-require_once( get_template_directory() . $customizer_path . '/header-menu.php' );
+require_once( get_template_directory() . $customizer_path . '/header-navbar.php' );
 
 /*
  *  Add the Footer Menu section
  */
-require_once( get_template_directory() . $customizer_path . '/footer-menu.php' );
+require_once( get_template_directory() . $customizer_path . '/footer-bottombar.php' );
 

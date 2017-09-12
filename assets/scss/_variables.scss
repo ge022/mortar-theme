@@ -529,12 +529,13 @@ $dropdown-padding-y:             $navbar-padding-y;
 $dropdown-link-color:            $black;
 //$dropdown-link-hover-color:      darken($gray-900, 5%) !default;
 $dropdown-link-hover-color:      lighten($black, 15%);
-//$dropdown-link-hover-bg:         $gray-100 !default;a
+//$dropdown-link-hover-bg:         $gray-100 !default;
+$dropdown-link-hover-bg:         inherit;
 //
 //$dropdown-link-active-color:     $component-active-color !default;
 $dropdown-link-active-color:     $component-active-color;
 //$dropdown-link-active-bg:        $component-active-bg !default;
-$dropdown-link-active-bg:        $component-active-bg;
+$dropdown-link-active-bg:        'inherit';
 //
 //$dropdown-link-disabled-color:   $gray-600 !default;
 //
@@ -598,6 +599,7 @@ $nav-link-padding-x:            0;
 $navbar-dark-color:                 $white;
 $navbar-dark-hover-color:           darken($white,15%);
 //$navbar-dark-active-color:          rgba($white,1) !default;
+$navbar-dark-active-color:          darken($white,15%);
 //$navbar-dark-disabled-color:        rgba($white,.25) !default;
 //$navbar-dark-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
 $navbar-dark-toggler-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-dark-color}' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23");

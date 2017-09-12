@@ -23,12 +23,15 @@
         
         <div class="col header-top">
           
-          <?php if ( get_theme_mod('optional_header_logo') ) : ?>
+          <?php if ( has_custom_logo() && get_theme_mod('optional_header_logo') ) : ?>
           
             <div class="d-flex text-center justify-content-center site-logo">
               <?php if ( get_theme_mod( 'optional_custom_header_logo' ) && get_theme_mod( 'custom_header_logo' ) ) : ?>
                 <?php
+                  // Replace custom_logo's src with the overriding image's
                   add_filter( 'get_custom_logo', 'custom_logo_src' );
+                  // Disable responsive image (srcset)
+                  add_filter( 'wp_calculate_image_srcset', '__return_false' );
                   the_custom_logo();
                 ?>
               <?php else : ?>
@@ -81,7 +84,7 @@
       
       <div class="row">
 
-        <nav class="col navbar navbar-expand-lg navbar-dark bg-dark w-100">
+        <nav class="col navbar navbar-expand-lg navbar-dark w-100">
           
           <div class="container">
             
