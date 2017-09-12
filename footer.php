@@ -9,7 +9,11 @@
         
         <div class="col text-center d-flex flex-column align-items-center footer-top">
           
-          <a class="home-link" href="<?php if ( is_front_page() && ! is_home() ) echo '#top'; else echo esc_url( home_url( '/' ) ); ?>">HOME</a>
+          <a class="home-link" href="<?php if ( is_front_page() && ! is_home() ) echo '#top'; else echo esc_url( home_url( '/' ) ); ?>">
+            <span>
+              HOME
+            </span>
+          </a>
           
           <ul class="list-inline contact-info">
             <li class="list-inline-item site-title">
@@ -26,7 +30,9 @@
             </li>
             <li class="list-inline-item">
               <address>
-                <a class="site-email" href="mailto:<?php echo get_theme_mod( 'site_email' ) ;?>"><?php echo get_theme_mod( 'site_email' ) ;?></a>
+                <a class="site-email" href="mailto:<?php echo get_theme_mod( 'site_email' ) ;?>">
+                  <?php echo get_theme_mod( 'site_email' ) ;?>
+                </a>
               </address>
             </li>
           </ul>

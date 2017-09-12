@@ -3,7 +3,6 @@
 /*
  *  Add the Footer Menu section
  */
-
 mortar_theme_Kirki::add_section( 'footer_bottombar', array(
   'title'          => __( 'Footer Menu' ),
   'description'    => __( 'Customize the footer menu here' ),
@@ -119,7 +118,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'transport' => 'auto',
   'output' => array(
     'element' => array(
-      'footer .bottombar',
+      'footer .bottom-bar',
     ),
     'property' => 'background-color',
   ),

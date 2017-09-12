@@ -74,10 +74,10 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   ),
 ) );
 
-// Custom contact item right margin
+// Custom contact-info list item right margin
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'type'        => 'dimension',
-  'settings'    => 'footer_home_contact_item_right_margin',
+  'settings'    => 'footer_contact_item_right_margin',
   'label'       => __( 'Contact Item Right Margin', 'mortar-theme' ),
   'description' => __( 'Use valid CSS units such as px, %, rem, or em.' ),
   'section'     => 'footer',
@@ -99,10 +99,10 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   ),
 ) );
 
-// Custom contact item bottom margin
+// Custom contact-info list item bottom margin
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'type'        => 'dimension',
-  'settings'    => 'footer_home_contact_item_bottom_margin',
+  'settings'    => 'footer_contact_item_bottom_margin',
   'label'       => __( 'Contact Item Bottom Margin', 'mortar-theme' ),
   'description' => __( 'Use valid CSS units such as px, %, rem, or em.' ),
   'section'     => 'footer',
@@ -125,6 +125,75 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
 ) );
 
 
+// Optional custom typography
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'toggle',
+  'settings'    => 'optional_footer_typography',
+  'label'       => __( 'Enable Custom Typography', 'mortar-theme' ),
+  'section'     => 'footer',
+  'default'     => false,
+  'priority'    => 40,
+) );
+
+// Custom home-link typography
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'typography',
+  'settings'    => 'footer_home_link_typography',
+  'label'       => __( 'Home Link Typography', 'mortar-theme' ),
+  'section'     => 'footer',
+  'default'     => array(
+    'font-family'    => 'inherit',
+    'variant'        => 'normal 400',
+    'font-size'      => 'inherit',
+    'letter-spacing' => 'normal',
+    'text-transform' => 'initial',
+  ),
+  'priority'    => 45,
+  'active_callback'   => array(
+    array(
+      'setting'  		=> 'optional_footer_typography',
+      'operator' 		=> '==',
+      'value'    		=> true,
+    ),
+  ),
+  'transport' => 'auto',
+  'output' => array(
+    'element' => array(
+      'footer .home-link span'
+    ),
+  ),
+) );
+
+// Custom contact-info list item typography
+mortar_theme_Kirki::add_field( 'mortar_theme', array(
+  'type'        => 'typography',
+  'settings'    => 'footer_contact_item_typography',
+  'label'       => __( 'Contact Item Typography', 'mortar-theme' ),
+  'section'     => 'footer',
+  'default'     => array(
+    'font-family'    => 'inherit',
+    'variant'        => 'normal 400',
+    'font-size'      => 'inherit',
+    'letter-spacing' => 'normal',
+    'text-transform' => 'initial',
+  ),
+  'priority'    => 50,
+  'active_callback'   => array(
+    array(
+      'setting'  		=> 'optional_footer_typography',
+      'operator' 		=> '==',
+      'value'    		=> true,
+    ),
+  ),
+  'transport' => 'auto',
+  'output' => array(
+    'element' => array(
+      'footer .contact-info li'
+    ),
+  ),
+) );
+
+
 // Optional custom colors
 mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'type'        => 'toggle',
@@ -132,7 +201,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Enable Custom Colors', 'mortar-theme' ),
   'section'     => 'footer',
   'default'     => false,
-  'priority'    => 40,
+  'priority'    => 60,
 ) );
 
 // Custom footer background color
@@ -142,7 +211,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Footer Background Color', 'mortar-theme' ),
   'section'     => 'footer',
   'default'     => '#343a40',
-  'priority'    => 45,
+  'priority'    => 65,
   'active_callback'   => array(
     array(
       'setting'  		=> 'optional_footer_colors',
@@ -169,7 +238,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Link Color', 'mortar-theme' ),
   'section'     => 'footer',
   'default'     => '#fff',
-  'priority'    => 50,
+  'priority'    => 70,
   'choices'     => array(
     'alpha' => true,
   ),
@@ -196,7 +265,7 @@ mortar_theme_Kirki::add_field( 'mortar_theme', array(
   'label'       => __( 'Link Hover Color', 'mortar-theme' ),
   'section'     => 'footer',
   'default'     => '#fff',
-  'priority'    => 55,
+  'priority'    => 75,
   'choices'     => array(
     'alpha' => true,
   ),

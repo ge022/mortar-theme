@@ -445,6 +445,7 @@ footer .contact-info{margin-top:2rem}
 footer,footer a{color:#fff}
 footer a:hover{color:#d9d9d9}
 .footer-top{padding-top:1.5rem;padding-bottom:1.5rem}
+footer .home-link{font-size:1.5rem}
 footer .contact-info .list-inline-item:not(:last-child){margin-right:.5rem}
 footer .contact-info li{margin-bottom:1rem}
 footer .bottom-bar{font-size:2rem;letter-spacing:1rem;background-color:#868e96}
@@ -452,7 +453,6 @@ html{font-size:14px}
 a{-webkit-transition:color .25s;transition:color .25s}
 .nav-item,.nav-link{display:inline-block}
 .dropdown-menu .nav-item{display:block}
-.home-link{font-size:1.5rem}
 ol,ul,dl{margin-bottom:0}
 address{margin-bottom:0}
 @media(min-width:576px){.container{max-width:540px}

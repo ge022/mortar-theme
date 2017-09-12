@@ -18,8 +18,6 @@
     <div class="container-fluid">
 
       <div class="row">
-
-        <!--  TODO: Responsive collapse for header-top -->
         
         <div class="col header-top">
           

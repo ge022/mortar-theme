@@ -3,7 +3,6 @@
 /*
  *  Add the Header Menu section
  */
-
 // Header menu section
 mortar_theme_Kirki::add_section( 'header_navbar', array(
   'title'          => __( 'Header Menu' ),

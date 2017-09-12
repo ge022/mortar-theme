@@ -16,6 +16,8 @@ function mortar_theme_customize_register( $wp_customize ) {
   $wp_customize->get_setting( 'blogdescription' )->transport  = $transport;
   $wp_customize->get_setting( 'header_textcolor' )->transport = $transport;
   $wp_customize->get_control('custom_logo')->description = __( 'This logo will be displayed on the site\'s login form and in the page\'s header (if not overridden in the Header section).' );
+  $wp_customize->get_section('colors')->description =   __( 'Customize the colors here' );
+;
   
   
   /*
@@ -145,3 +147,12 @@ require_once( get_template_directory() . $customizer_path . '/header-navbar.php'
  */
 require_once( get_template_directory() . $customizer_path . '/footer-bottombar.php' );
 
+/*
+ *  Add to the Colors section
+ */
+require_once( get_template_directory() . $customizer_path . '/colors.php' );
+
+/*
+ *  Add to the Typography section
+ */
+require_once( get_template_directory() . $customizer_path . '/typography.php' );
